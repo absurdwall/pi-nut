@@ -1,0 +1,13 @@
+{
+  "name": "pi-nut",
+  "version": "0.1.0",
+  "description": "Personal extensions and harness layer for vanilla Pi.",
+  "keywords": ["pi-package"],
+  "license": "MIT",
+  "type": "module",
+  "pi": {
+    "extensions": ["./extensions"],
+    "skills": ["./skills"],
+    "prompts": ["./prompts"]
+  }
+}
