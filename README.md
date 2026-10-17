@@ -41,6 +41,22 @@ type:
 packages run with full system access, so review any future `pi-nut` code before
 loading it.
 
-## Status
+## Model policy
 
-No harness features are implemented yet.
+`extensions/model-policy.ts` adds the first harness feature. It watches both
+session startup and Pi's `model_select` event and warns when the selected model
+is outside this allow-list:
+
+- `ollama/qwen3.5:9b-mlx`
+- `openai-codex/gpt-5.6-luna`
+- `openai-codex/gpt-5.6-sol`
+
+The fallback is `openai-codex/gpt-5.6-luna`. Warning-only behavior is the
+safe default. To opt into automatic fallback for a run:
+
+```bash
+pi --model-policy-auto-switch
+```
+
+The model references are matched exactly, including the local Ollama model
+identifier.
